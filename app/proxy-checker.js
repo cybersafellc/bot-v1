@@ -39,12 +39,13 @@ const running = async (proxyList) => {
 
 const lunch = async (proxy) => {
   const browser = await puppeteer.launch({
+    headless: true,
     args: [`--proxy-server=${proxy}`],
   });
   try {
     const page = await browser.newPage();
-    await page.goto("https://www.google.com", {
-      timeout: 7000,
+    await page.goto("https://ip-api.com/json/8.8.8.8", {
+      timeout: 6000,
     });
     await browser.close();
     return true;

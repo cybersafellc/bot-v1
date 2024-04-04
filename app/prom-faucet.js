@@ -38,8 +38,9 @@ const launch = async (proxy) => {
       'input[placeholder="Enter your wallet address"]',
       await process.env.PROM_ADDRESS
     );
+    await new Promise((resolve) => setTimeout(resolve, 4000));
     await page.click("div.framer-8o80si");
-    await new Promise((resolve) => setTimeout(resolve, 11000)); // membuat waktu tunggu yang diterima di asyn bukan kek settimout kebal async
+    await new Promise((resolve) => setTimeout(resolve, 31000)); // membuat waktu tunggu yang diterima di asyn bukan kek settimout kebal async
     await console.log(
       chalk.blue(Date()) +
         " => " +

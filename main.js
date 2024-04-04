@@ -4,6 +4,7 @@ import proxyGrabber from "./app/proxy-grabber.js";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import readline from "readline";
+import affyntuyul from "./app/affyn-tuyul.js";
 dotenv.config();
 
 const rl = await readline.createInterface({
@@ -58,6 +59,7 @@ console.log(
 console.log(chalk.blue("1. Grabber Proxy"));
 console.log(chalk.blue("2. Proxy Checker"));
 console.log(chalk.blue("3. Claim Prom Faucet"));
+console.log(chalk.green("4. Affyn Refferal Cheats"));
 console.log(
   chalk.red("===========================================================")
 );
@@ -67,7 +69,7 @@ rl.question(chalk.red("chose one : "), async (numberSelect) => {
 });
 
 rl.on("close", () => {
-  console.log(chalk.red("BYEE!"));
+  console.log(chalk.red("Thankyou for using my tools, BYEE !"));
   process.exit(0);
 });
 
@@ -78,6 +80,13 @@ const exeCute = async (choseNumber, rl) => {
     return proxyCheker();
   } else if (choseNumber == 3) {
     return promFaucet();
+  } else if (choseNumber == 4) {
+    rl.question(
+      chalk.red("BERAPA BROWSER KAMU MAU ? : "),
+      async (totalBrowser) => {
+        return affyntuyul(parseInt(totalBrowser));
+      }
+    );
   } else {
     console.log(chalk.red(`I DONT KNOW`));
     rl.close();
